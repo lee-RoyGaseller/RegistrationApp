@@ -12,13 +12,17 @@ public class Main {
         Course c1 = new Course();
         System.out.println("course 1: "+ c1);
 
-        Course c2 = new Course("CPSC",2730,3);
+        Course c2 = new Course("CPSC","2730",3);
         System.out.println("course 2: " + c2);
 
         System.out.println("is c1 equal to c2?  " + c1.equals(c2));
 
         Course c3 = new Course(c1.getDept(),c1.getCourseNumber(),c1.getHours());
         System.out.println("is c1 equal to c3? " + c1.equals(c3));
+
+        ArrayList<Course> courses = new ArrayList<>();
+        fillCourseList("curriculum.dat",courses);
+        System.out.println("courses: "+ courses);
 
        /* ArrayList<Integer> hours = new ArrayList<>();
         readFromFile("curriculum.dat");
@@ -29,6 +33,36 @@ public class Main {
         ArrayList<String> courses = new ArrayList<>();
         addCoursesToList("Curriculum.dat", courses);*/
 
+
+    }
+
+    private static void fillCourseList(String fileName, ArrayList<Course> courses) {
+        File infile = new File(fileName);
+        if( ! infile.exists() ) {
+            System.out.println( "Oh no, you can't read from a file that doesn't exist!" );
+        } else {
+            try( Scanner scan = new Scanner( infile ) ) {
+                while( scan.hasNext() ) {
+                    Course course = new Course();
+                    for (int i = 1; i <=3 ; i++) {
+                        if (i ==1){
+                            course.setDept(scan.next());
+                        }
+                        if(i ==2){
+                            course.setCourseNumber(Integer.toString(scan.nextInt()));
+                        }
+                        if (i ==3){
+                            course.setHours(scan.nextInt());
+                        }
+
+
+                    }
+                    courses.add(course);
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 

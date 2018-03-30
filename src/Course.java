@@ -2,14 +2,17 @@ import java.util.Objects;
 
 public class Course {
     private String dept;
-    private Integer courseNumber;
+    private String courseNumber;
     private Integer hours;
 
     public Course(){
+        this.dept = null;
+        this.courseNumber = null;
+        this.hours = null;
 
     }
 
-    public Course(String dept, Integer courseNumber, Integer hours) {
+    public Course(String dept, String courseNumber, Integer hours) {
         this.dept = dept;
         this.courseNumber = courseNumber;
         this.hours = hours;
@@ -20,7 +23,7 @@ public class Course {
         return dept;
     }
 
-    public Integer getCourseNumber() {
+    public String getCourseNumber() {
         return courseNumber;
     }
 
@@ -32,7 +35,7 @@ public class Course {
         this.dept = dept;
     }
 
-    public void setCourseNumber(Integer courseNumber) {
+    public void setCourseNumber(String courseNumber) {
         this.courseNumber = courseNumber;
     }
 
