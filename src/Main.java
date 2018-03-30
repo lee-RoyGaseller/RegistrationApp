@@ -9,13 +9,32 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         System.out.println("\n\nHello, RegistrationApp!\n");
-        ArrayList<Integer> hours = new ArrayList<Integer>();
+        Course c1 = new Course();
+        System.out.println("course 1: "+ c1);
+
+        Course c2 = new Course("CPSC",2730,3);
+        System.out.println("course 2: " + c2);
+
+        System.out.println("is c1 equal to c2?  " + c1.equals(c2));
+
+        Course c3 = new Course(c1.getDept(),c1.getCourseNumber(),c1.getHours());
+        System.out.println("is c1 equal to c3? " + c1.equals(c3));
+
+       /* ArrayList<Integer> hours = new ArrayList<>();
         readFromFile("curriculum.dat");
         //add hours to list
         addHoursToList("Curriculum.dat",hours);
         System.out.println("total number of hours: "+ hours);
+        //add courses to list
+        ArrayList<String> courses = new ArrayList<>();
+        addCoursesToList("Curriculum.dat", courses);*/
 
 
+    }
+
+}
+
+    /*private static void addCoursesToList(String fileName, ArrayList<String> courses) {
 
     }
 
@@ -44,4 +63,4 @@ public class Main {
         }
     }
 
-}
+}*/
