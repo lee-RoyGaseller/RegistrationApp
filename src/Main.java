@@ -36,14 +36,14 @@ public class Main {
 
     }
 
-    private static void fillCourseList(String fileName, ArrayList<Course> courses) {
+    private static ArrayList<Course> fillCourseList(String fileName, ArrayList<Course> courses) {
         File infile = new File(fileName);
         if( ! infile.exists() ) {
             System.out.println( "Oh no, you can't read from a file that doesn't exist!" );
         } else {
             try( Scanner scan = new Scanner( infile ) ) {
                 while( scan.hasNext() ) {
-                    Course course = new Course();
+                    /*Course course = new Course();
                     for (int i = 1; i <=3 ; i++) {
                         if (i ==1){
                             course.setDept(scan.next());
@@ -53,16 +53,19 @@ public class Main {
                         }
                         if (i ==3){
                             course.setHours(scan.nextInt());
-                        }
-
-
-                    }
+                        }*/
+                    String aLine = scan.nextLine();
+                    String[] parts = aLine.split( " " );
+                    Course course = new Course(parts[0],parts[1],Integer.parseInt(parts[2]));
                     courses.add(course);
-                }
-            } catch (FileNotFoundException e) {
+                    }
+
+                } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+
         }
+        return courses;
 
     }
 
