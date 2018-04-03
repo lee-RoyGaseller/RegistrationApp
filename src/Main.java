@@ -57,22 +57,37 @@ public class Main {
                     String aLine = scan.nextLine();
                     String[] parts = aLine.split( " " );
                     if(parts[1].equals("African")){
-                        Course course = new Course("African American Heritage", null, 3);
-                    }
-                    if(parts[1].equals("Human")){
-                        Course course = new Course("Human Past", null, 3);
-                    }
-                    if(parts[1].equals("Scientific")){
-                        Course course = new Course("Scientific Reasoning", null, 3);
-                    }
-                    if(parts[1].equals("CPSC")){
-                        Course course = new Course("CPSC Elective", null, 3);
+                        Course course = new Course("African American Heritage", " ", 3);
                     }
                     else {
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[2]));
+                        courses.add(course);
+                    }
+                    if(parts[1].equals("Human")){
+                        Course course = new Course("Human Past", " ", 3);
+                    }
+                    else {
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[2]));
+                        courses.add(course);
+                    }
+                    if(parts[1].equals("Scientific")){
+                        Course course = new Course("Scientific Reasoning", " ", 3);
+                    }
+                    else {
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[2]));
+                        courses.add(course);
+                    }
+                    if(parts[1].equals("CPSC")){
+                        Course course = new Course("CPSC Elective", " ", 3);
+                    }
+                    else {
+
 
                         Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[2]));
                         courses.add(course);
                     }
+
+
                     }
 
                 } catch (FileNotFoundException e) {
