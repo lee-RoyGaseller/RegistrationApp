@@ -23,6 +23,7 @@ public class Main {
         ArrayList<Course> courses = new ArrayList<>();
         fillCourseList("curriculum.dat",courses);
         System.out.println("courses: "+ courses);
+        System.out.println("courses size: "+ courses.size());
 
        /* ArrayList<Integer> hours = new ArrayList<>();
         readFromFile("curriculum.dat");
@@ -59,6 +60,8 @@ public class Main {
                     System.out.println("\n\nsplit: " + Arrays.asList(parts) + "\n");
                     if(parts[1].equals("African")){
                         Course course = new Course("African American Heritage", " ", 3);
+                        courses.add(course);
+
                     }
                     /*else {
                         Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length-1]));
@@ -66,6 +69,7 @@ public class Main {
                     }*/
                     if(parts[1].equals("Human")){
                         Course course = new Course("Human Past", " ", 3);
+                        courses.add(course);
                     }
                     /*else {
                         Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length-1]));
@@ -73,6 +77,7 @@ public class Main {
                     }*/
                     if(parts[1].equals("Scientific")){
                         Course course = new Course("Scientific Reasoning", " ", 3);
+                        courses.add(course);
                     }
                     /*else {
                         Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length-1]));
@@ -80,10 +85,16 @@ public class Main {
                     }*/
                     if(parts[1].equals("CPSC")){
                         Course course = new Course("CPSC Elective", " ", 3);
-                    }
-
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length-1]));
                         courses.add(course);
+                    }
+                    if(parts[0].equals("*")){
+                        
+                    }
+                    else {
+
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length - 1]));
+                        courses.add(course);
+                    }
 
 
                     }
