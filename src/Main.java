@@ -33,9 +33,25 @@ public class Main {
         int numOfCPSCCourses = totalNumberOfDepartmentCourses("CPSC",courses);
         System.out.println("the total number of CPSC courses: " + numOfCPSCCourses);
 
+        //determine if a course is in the curriculum
+        Course c4 = new Course("PHIL","2040",3);
+
+        boolean isPhilosophyInTheCurriculum =  isThisCourseInTheCurriculum(c4 , courses);
+        System.out.println("philosophy 2040 in the curriculum: "+ isPhilosophyInTheCurriculum);
 
 
 
+
+    }
+
+    private static boolean isThisCourseInTheCurriculum(Course course, ArrayList<Course> courses) {
+        boolean in = false;
+        for (int i = 0; i < courses.size(); i++) {
+            if (courses.get(i).equals(course)){
+                in = true;
+            }
+        }
+        return in;
     }
 
     private static int totalNumberOfDepartmentCourses(String dept, ArrayList<Course> courses) {
@@ -69,7 +85,6 @@ public class Main {
 
                     String aLine = scan.nextLine();
                     String[] parts = aLine.split(" ");
-                    System.out.println("\n\nsplit: " + Arrays.asList(parts) + "\n");
                     if (parts[1].equals("African")) {
                         Course course = new Course("African American Heritage", " ", 3);
                         courses.add(course);
