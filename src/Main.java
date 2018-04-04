@@ -60,33 +60,30 @@ public class Main {
                     if(parts[1].equals("African")){
                         Course course = new Course("African American Heritage", " ", 3);
                     }
-                    else {
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[4]));
+                    /*else {
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length-1]));
                         courses.add(course);
-                    }
+                    }*/
                     if(parts[1].equals("Human")){
                         Course course = new Course("Human Past", " ", 3);
                     }
-                    else {
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[4]));
+                    /*else {
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length-1]));
                         courses.add(course);
-                    }
+                    }*/
                     if(parts[1].equals("Scientific")){
                         Course course = new Course("Scientific Reasoning", " ", 3);
                     }
-                    else {
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[4]));
+                    /*else {
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length-1]));
                         courses.add(course);
-                    }
+                    }*/
                     if(parts[1].equals("CPSC")){
                         Course course = new Course("CPSC Elective", " ", 3);
                     }
-                    else {
 
-
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[4]));
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length-1]));
                         courses.add(course);
-                    }
 
 
                     }
