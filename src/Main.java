@@ -56,25 +56,26 @@ public class Main {
                         }*/
                     String aLine = scan.nextLine();
                     String[] parts = aLine.split( " " );
+                    System.out.println("\n\nsplit: " + Arrays.asList(parts) + "\n");
                     if(parts[1].equals("African")){
                         Course course = new Course("African American Heritage", " ", 3);
                     }
                     else {
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[2]));
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[4]));
                         courses.add(course);
                     }
                     if(parts[1].equals("Human")){
                         Course course = new Course("Human Past", " ", 3);
                     }
                     else {
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[2]));
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[4]));
                         courses.add(course);
                     }
                     if(parts[1].equals("Scientific")){
                         Course course = new Course("Scientific Reasoning", " ", 3);
                     }
                     else {
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[2]));
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[4]));
                         courses.add(course);
                     }
                     if(parts[1].equals("CPSC")){
@@ -83,7 +84,7 @@ public class Main {
                     else {
 
 
-                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[2]));
+                        Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[4]));
                         courses.add(course);
                     }
 
