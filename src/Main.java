@@ -29,9 +29,24 @@ public class Main {
         int totalHours = totalHoursInCurriculum(courses);
         System.out.println("the total hours in the curriculum: "+ totalHours);
 
+        //total number of department courses
+        int numOfCPSCCourses = totalNumberOfDepartmentCourses("CPSC",courses);
+        System.out.println("the total number of CPSC courses: " + numOfCPSCCourses);
 
 
 
+
+    }
+
+    private static int totalNumberOfDepartmentCourses(String dept, ArrayList<Course> courses) {
+        int numOfDesiredCourse = 0;
+        for (int i = 0; i < courses.size() ; i++) {
+            if (courses.get(i).getDept().equals(dept)){
+                numOfDesiredCourse++;
+            }
+
+        }
+        return numOfDesiredCourse;
     }
 
     private static int totalHoursInCurriculum(ArrayList<Course> courses) {
