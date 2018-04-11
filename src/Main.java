@@ -39,6 +39,33 @@ public class Main {
         boolean isPhilosophyInTheCurriculum =  isThisCourseInTheCurriculum(c4 , courses);
         System.out.println("philosophy 2040 in the curriculum: "+ isPhilosophyInTheCurriculum);
 
+        //create transcript file
+        addRandomDatesToFile("transcript.dat",courses);
+
+
+
+
+
+    }
+
+    private static void addRandomDatesToFile(String nameOfFile, ArrayList<Course> courses) throws FileNotFoundException {
+        File file = new File(nameOfFile);
+        if (file.exists()) {
+            System.out.println("Oh no, you're going to overwrite the data in the file!");
+        }
+
+
+        try(PrintWriter pw = new PrintWriter(file)){
+            for (int i = 0; i < courses.size(); i++) {
+                pw.print(courses.get(i).getDept());
+                pw.print(" ");
+                pw.print(courses.get(i).getCourseNumber());
+                pw.print(" ");
+                pw.println(courses.get(i).getHours());
+            }
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
 
 
 
@@ -107,7 +134,9 @@ public class Main {
                     }
                     if (parts[0].equals("*")) {
 
-                    } else {
+                    }
+
+                    else {
 
                         Course course = new Course(parts[0], parts[1], Integer.parseInt(parts[parts.length - 1]));
                         courses.add(course);
