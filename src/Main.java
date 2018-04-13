@@ -26,7 +26,7 @@ public class Main {
         System.out.println("courses size: "+ courses.size());
 
         //calculate total hours in curriculum
-        int totalHours = totalHoursInCurriculum(courses);
+        int totalHours = totalHours(courses);
         System.out.println("the total hours in the curriculum: "+ totalHours);
 
         //total number of department courses
@@ -42,10 +42,45 @@ public class Main {
         //create transcript file
         createTranscript("transcript.dat",courses);
 
+        //Other transcript methods
+        ArrayList<Course> transcriptCourses = new ArrayList<>();
+        fillCourseList("transcript.dat",transcriptCourses);
+        System.out.println("transcript courses: "+ transcriptCourses);
+        int totalHoursInTranscript = totalHours(transcriptCourses);
+        System.out.println("total hours in transcript: "+ totalHoursInTranscript);
+
+        boolean isTranscriptCourseInCurriculum = isTranscriptCourseAlsoInCurriculum(transcriptCourses.get(5),transcriptCourses, courses);
+        System.out.println(transcriptCourses.get(5) +" in curriculum? " + isTranscriptCourseInCurriculum);
+
+        boolean canIGraduate = allRequiredCoursesNeededToGraduate(transcriptCourses, courses);
+
+        System.out.println("can I graduate? " + canIGraduate);
 
 
 
 
+
+
+
+    }
+
+    private static boolean allRequiredCoursesNeededToGraduate(ArrayList<Course> transcriptCourses, ArrayList<Course> courses) {
+        boolean allSame = true;
+        if (courses.containsAll(transcriptCourses) != true){
+            allSame = false;
+        }
+        return allSame;
+    }
+
+    private static boolean isTranscriptCourseAlsoInCurriculum(Course theCourse, ArrayList<Course> transcriptCourses, ArrayList<Course> courses) {
+        boolean isIn = false;
+        for (int i = 0; i <courses.size() ; i++) {
+            if(theCourse.equals(courses.get(i))){
+                isIn = true;
+            }
+
+        }
+        return isIn;
     }
 
     private static void createTranscript(String nameOfFile, ArrayList<Course> courses) throws FileNotFoundException {
@@ -98,7 +133,7 @@ public class Main {
         return numOfDesiredCourse;
     }
 
-    private static int totalHoursInCurriculum(ArrayList<Course> courses) {
+    private static int totalHours(ArrayList<Course> courses) {
        int totalHours = 0;
         for (int i = 0; i <courses.size() ; i++) {
             totalHours+= courses.get(i).getHours();
