@@ -40,7 +40,7 @@ public class Main {
         System.out.println("philosophy 2040 in the curriculum: "+ isPhilosophyInTheCurriculum);
 
         //create transcript file
-        addRandomDatesToFile("transcript.dat",courses);
+        createTranscript("transcript.dat",courses);
 
 
 
@@ -48,7 +48,7 @@ public class Main {
 
     }
 
-    private static void addRandomDatesToFile(String nameOfFile, ArrayList<Course> courses) throws FileNotFoundException {
+    private static void createTranscript(String nameOfFile, ArrayList<Course> courses) throws FileNotFoundException {
         File file = new File(nameOfFile);
         if (file.exists()) {
             System.out.println("Oh no, you're going to overwrite the data in the file!");
@@ -57,11 +57,17 @@ public class Main {
 
         try(PrintWriter pw = new PrintWriter(file)){
             for (int i = 0; i < courses.size(); i++) {
-                pw.print(courses.get(i).getDept());
-                pw.print(" ");
-                pw.print(courses.get(i).getCourseNumber());
-                pw.print(" ");
-                pw.println(courses.get(i).getHours());
+                String[] parts = courses.get(i).getDept().split(" ");
+                if(parts[0].equals("African") || parts[0].equals("Human") || parts[0].equals("Scientific") || parts.length>=2 ){
+
+                }
+                else {
+                    pw.print(courses.get(i).getDept());
+                    pw.print(" ");
+                    pw.print(courses.get(i).getCourseNumber());
+                    pw.print(" ");
+                    pw.println(courses.get(i).getHours());
+                }
             }
         } catch (FileNotFoundException e){
             e.printStackTrace();
